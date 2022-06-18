@@ -3,7 +3,9 @@ let app = express();
 let port = process.env.PORT||3000
 
 app.get('/',(req,res)=>{
-    res.send('Pedro Vitor F. dos Santos')
+    res.sendFile('/views/login.html')})
+app.get('/chat',(req,res)=>{
+    res.sendFile('/views/chat.html')
 })
 
 app.listen(port,()=>{
