@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon GO - sign up</title>
+    <link rel="icon" href="https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825868lk1bm.png">
+    <style>
+        body
+        {
+            margin:0;
+            font-family: sans-serif;
+
+            min-height: 100vh;
+            display: flex;
+            background-image: linear-gradient(to top, white,rgb(102, 0, 255),rgb(102, 0, 255));
+            justify-content: center;
+
+        }
+        main
+        {
+            min-width: 300px;
+        }
+         div
+        {
+            width:100%;
+            height: 100%;
+            background: white;
+        }
+        div span
+        {
+            display: block;
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px ;
+        }
+        form
+        {
+            display: flex;
+            flex-direction: column;
+             align-items: center;
+        }
+       div  input
+        {
+            
+            border: none;
+            background-color: rgb(167, 167, 167);
+            height:20px;
+            outline: none;
+            color:white;
+
+        }
+        div.input
+        {
+            display:flex;
+            padding: 30px 0  15px 0;
+            flex-direction: row;
+    justify-content: center;
+        }
+     
+    div.circle
+    {
+        width: 22px;
+        height: 22px;
+        background-color: rgb(167, 167, 167);
+        
+    }
+    div.circle.direita
+    {
+        border-radius: 0px 10px 10px 0px ;
+    }
+    div.circle.esquerda
+    {
+        border-radius: 10px 0px 0px 10px ;
+    }
+    h2{
+        margin: 0;
+    }
+    button
+    {
+        background-color: rgb(102, 0, 255);
+        color:white;
+        font-family: sans-serif;
+        border: none;
+        height: 22px;
+        padding: 0 14px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button.login
+    {
+        background-color: transparent;
+        border :none;
+        color:rgb(102, 0, 255);
+        cursor: pointer;
+        
+    }
+    button.login:hover
+{
+    border-bottom: 2px solid;
+    border-radius: 0;
+}
+    p
+    {
+        text-align: end;
+        padding-right: 10px;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <main>
+        <div>
+            <span>POKEMON GO</span>
+            <span style="color:gray">sign up</span>
+            <form onsubmit="cadastra()">
+                <h2>Name</h2>
+            <div class="input">
+                    <div class="circle esquerda"></div>
+            <input name="name" type="text" required>
+            <div class="circle direita"></div>
+            </div>
+            <h2>Password</h2>
+            <div  class="input">
+                <div class="circle esquerda"></div>
+        <input name="password" type="password" required >
+        <div class="circle direita"></div>
+             </div>
+            <button type="submit">REGISTER</button>
+            </form>
+            <form onsubmit="podeLogar()">
+                <input style="display:none">
+        <button class="login" type="submit">login</button>
+            </form>
+            <p>By Pedro Vitor</p>
+        </div>
+    </main>
+    <script>
+        let jaCadastrado;
+        function setup(){
+            jaCadastrado = getItem('jaCadastrado');
+            
+        }
+        function draw(){
+            if(document.querySelector('canvas')!=null)
+            document.querySelector('canvas').remove()
+        }
+       function cadastra(){
+        let form = document.querySelector('form');
+        if(document.querySelector('input[name = name]').value != '')
+        if(document.querySelector('input[name = name]').value != '')
+        if(jaCadastrado === null){
+            storeItem('jaCadastrado',document.querySelector('input').value)
+            form. method="post"
+                form.action="/home"
+        }
+       }
+        function podeLogar(){
+            let form = document.querySelector('form');
+            if(jaCadastrado != null){
+                alert('vc ja e cadastrado')
+                form. method="post"
+                form.action="/home"
+                
+        }else{
+            document.querySelector('form').method = 'get'
+                document.querySelector('form').action = '/login'
+        }
+    }
+    </script>
+    
+    
+</body>
+</html>
