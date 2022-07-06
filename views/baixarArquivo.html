@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baixar arquivo</title>
+</head>
+<body>
+    <style>
+        h2{
+            color:red;
+        }
+    </style>
+    <h2>texto pedido</h2>
+    <p>esse é o texto descrevendo o arqui vo que quero baixar</p>
+    <button onclick="imprimir()"></button>
+    <script>
+          function imprimir(){
+       var conteudo = document.querySelector('body').innerHTML,
+    tela_impressao = window.open('about:blank');
+    tela_impressao.document.write(conteudo);
+    tela_impressao.window.print();
+    tela_impressao.window.close();
+  }
+    </script>
+</body>
+
+</html>
